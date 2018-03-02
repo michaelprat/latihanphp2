@@ -9,7 +9,7 @@
 <body>
 
 <table id="tablecontent" border="2">
-    <form action="Latihanhitungongkir2.php" method="post">
+    <form action="Latihanhitungongkir2.php" method="post" onsubmit="return validasi(this)">
     <tr>
         <td id="headtable" colspan="3">Penjualan</td>
 </tr>
@@ -38,6 +38,20 @@
     <td id="contenttable" colspan="2"><input type="Submit" value="Hitung"></input>&nbsp;<input type="Reset" value="Hapus"></input>
 </form>
 </table>
-
+<script type="text/javascript">
+    function validasi(form)
+    {
+        if(form.valuenama.value=="" || form.valueharga.value=="" || form.valuequantity.value==""  || form.valuepelanggan.value==""  || form.valuekota.value=="select" || isNaN(form.valueharga.value)==true || isNaN(form.valuequantity.value)==true )
+        { 
+            alert("Ada kesalahan pada saat menginput data");
+            form.valuenama.focus();
+            return(false);
+        }
+            return(true);
+        
+    }
+    
+    
+    </script>
 </body>
 </html>
