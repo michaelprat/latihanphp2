@@ -1,0 +1,7 @@
+No. Kursi      :3
+No. Ktp        :11313113
+Nama Pemesan   :aaddaad
+Jenis Kelamin  :Laki-laki
+Alamat         :adadadad
+Pembayaran     :400000
+Kembali        :40000

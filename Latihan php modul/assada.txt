@@ -1,0 +1,7 @@
+No. Kursi      :2
+No. Ktp        :122121
+Nama Pemesan   :assada
+Jenis Kelamin  :Laki-laki
+Alamat         :adadad
+Pembayaran     :400000
+Kembali        :40000

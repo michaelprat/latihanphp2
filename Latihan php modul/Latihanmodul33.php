@@ -50,38 +50,57 @@ $kebaca=true;
 $angka=0;
 $tandafile=1;
 
-$directory = new DirectoryIterator(__DIR__);
-$num = 0;
-foreach ($directory as $fileinfo) {
-    if ($fileinfo->isFile()) {
-        if($fileinfo->getExtension() == 'txt')
-            $num++;
-    }
-}
+ $num=0;
+ $dir=opendir("./");
+      while(($file=readdir($dir))!==false)
+      {
+        if($file!="." AND $file!="..")
+       {
+        $info=pathinfo($file);
+        if (array_key_exists('extension', $info)){
+            $exten=$info["extension"]; 
+        
+    $name=$info['filename'];
+      if($exten=="txt")
+     {
+    $num++;}
+        }
+      
+       }
+     }
+  closedir($dir);
+
+
+//  $directory = new DirectoryIterator(__DIR__);
+//  $num = 0;
+//  foreach ($directory as $fileinfo) {
+//           if ($fileinfo->isFile()) {
+//       if($fileinfo->getExtension() == 'txt')
+//              $num++;
+//      }
+//  }
 $num=$num+1;
 
 $nama=$_POST['nama'];
-$alamat=$_POST['alamat'].PHP_EOL;
-$jumlahpesan=$_POST['jumlahpesan'].PHP_EOL;
+$alamat=$_POST['alamat'];
+$jumlahpesan=$_POST['jumlahpesan'];
 $hargapesan=$_POST['hargatotal'];
 $bayar=$_POST['hargabayar'];
-$gender=$_POST['gender'].PHP_EOL;
-$ktp=$_POST['ktp'].PHP_EOL;
-$num=$num.PHP_EOL;
+$gender=$_POST['gender'];
+$ktp=$_POST['ktp'];
+
 echo "<H3>Terimakasih Sudah memesan &nbsp;".$nama."</H3>";
-$filecoba=fopen($nama.'.txt','a');
-$nama=$nama.PHP_EOL;
+$filecoba=fopen($nama.'.txt','w');
+
 $kembali=$bayar-$hargapesan;
-$kembali=$kembali.PHP_EOL;
-$bayar=$bayar.PHP_EOL;
-$hargapesan=$hargapesan.PHP_EOL;
-fwrite($filecoba,"No. Kursi      :".$num);
-fwrite($filecoba,"No. Ktp        :".$ktp);
-fwrite($filecoba,"Nama Pemesan   :".$nama);
-fwrite($filecoba,"Jenis Kelamin  :".$gender);
-fwrite($filecoba,"Alamat         :".$alamat);
-fwrite($filecoba,"Pembayaran     :".$bayar);
-fwrite($filecoba,"Kembali        :".$kembali);
+
+fwrite($filecoba,"No. Kursi      :".$num."\r\n");
+fwrite($filecoba,"No. Ktp        :".$ktp."\r\n");
+fwrite($filecoba,"Nama Pemesan   :".$nama."\r\n");
+fwrite($filecoba,"Jenis Kelamin  :".$gender."\r\n");
+fwrite($filecoba,"Alamat         :".$alamat."\r\n");
+fwrite($filecoba,"Pembayaran     :".$bayar."\r\n");
+fwrite($filecoba,"Kembali        :".$kembali."\r\n");
 fclose($filecoba);
 echo"<br></br>";
 echo "File pesanan sudah berhasil disimpan,nomor kursi anda :".$num;
@@ -94,8 +113,7 @@ echo "<a href=\"Latihanmodul3.php\">Kembali ke halaman utama</a> ";
 </div>
 
 	
-<?php
-?>
+
 <script type="text/javascript">
 
     function hitung()

@@ -1,0 +1,7 @@
+No. Kursi      :1
+No. Ktp        :12213131
+Nama Pemesan   :Michael Pratama
+Jenis Kelamin  :Laki-laki
+Alamat         :SHDDAADAD
+Pembayaran     :400000
+Kembali        :40000
